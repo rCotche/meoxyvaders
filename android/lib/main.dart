@@ -15,8 +15,10 @@ var game = new Galaxy(dimensions);
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
         title: 'Welcome to MeoxyVaders',
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
             body: Container(
           decoration: new BoxDecoration(

@@ -23,4 +23,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/background.jpg
-    - assets/images/mandalorian.png
+    - assets/images/player.png
+    - assets/images/enemy.png
