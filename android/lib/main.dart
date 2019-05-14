@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flame/flame.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-main() async {
-  Flame.audio.disableLog();
-  Flame.images.loadAll(['fire.png', 'dragon.png', 'gun.png', 'bullet.png']);
+void main() => runApp(MyApp());
 
-  var dimensions = await Flame.util.initialDimensions();
-
-  //game = new Galaxy(dimensions);
-
-  runApp(MaterialApp(
-      home: Scaffold(
-          body: Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new AssetImage("assets/images/background.jpg"),
-                fit: BoxFit.cover,
-              ),
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Welcome to MeoxyVaders',
+        home: Scaffold(
+            body: Container(
+          decoration: new BoxDecoration(
+            image: new DecorationImage(
+              image: new AssetImage("assets/images/background.jpg"),
+              fit: BoxFit.cover,
             ),
-            //child: GameWrapper(game),
-          ))));
+          ),
+        )));
+  }
 }
