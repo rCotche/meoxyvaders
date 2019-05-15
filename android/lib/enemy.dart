@@ -10,7 +10,7 @@ class Enemy extends SpriteComponent {
   bool remove = false;
   @override
   void update(double t) {
-    y += t * SPEED;
+    this.y += t * SPEED;
   }
   @override
   bool destroy() {

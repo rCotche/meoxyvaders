@@ -1,20 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flame/flame.dart';
+import 'package:flutter/gestures.dart';
 
 import 'galaxy.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  //BuildContext context;
+
+  double touchPositionDx = 0.0;
+  double touchPositionDy = 0.0;
+
   static Size dimensions;
   getDimension()async{
     dimensions = await Flame.util.initialDimensions();
+
+    /*HorizontalDragGestureRecognizer horizontalDragGestureRecognizer =
+    new HorizontalDragGestureRecognizer();
+
+    Flame.util.addGestureRecognizer(horizontalDragGestureRecognizer
+      ..onUpdate = (startDetails) => game.dragInput(startDetails.globalPosition));
+
+    Flame.util.addGestureRecognizer(new TapGestureRecognizer()
+      ..onTapDown = (TapDownDetails evt) => game.tapInput(evt.globalPosition));
+
+    // Adds onUP feature to fire bullets
+    Flame.util.addGestureRecognizer(new TapGestureRecognizer()
+      ..onTapUp = (TapUpDetails evt) => game.onUp(evt.globalPosition));*/
+
+
   }
 
 var game = new Galaxy(dimensions);
 
   @override
   Widget build(BuildContext context) {
+
+    Flame.util.addGestureRecognizer(new HorizontalDragGestureRecognizer()
+      ..onUpdate = (DragUpdateDetails update) => game.gonDragUpdate(context, update));
+
+    Flame.util.addGestureRecognizer(new HorizontalDragGestureRecognizer()
+      ..onStart = (DragStartDetails start) => game.gonDragStart(context, start));
 
     return MaterialApp(
         title: 'Welcome to MeoxyVaders',
