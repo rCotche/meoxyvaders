@@ -25,3 +25,4 @@ flutter:
     - assets/images/background.jpg
     - assets/images/player.png
     - assets/images/enemy.png
+    - assets/images/bullet.png

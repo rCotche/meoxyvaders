@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/gestures.dart';
+import 'bullet.dart';
+import 'enemy.dart';
 
 import 'galaxy.dart';
 
 void main() => runApp(MyApp());
 
+bool gameOver = false;
+const ENEMY_SIZE = 40.0;
+const BULLET_SIZE = 20.0;
+
+Bullet bullet;
+Enemy enemy;
+
+int points = 0;
+
+double bulletPositionDx = 0.0;
+double bulletPositionDy = 0.0;
+
 class MyApp extends StatelessWidget {
   //BuildContext context;
-
-  double touchPositionDx = 0.0;
-  double touchPositionDy = 0.0;
 
   static Size dimensions;
   getDimension()async{
