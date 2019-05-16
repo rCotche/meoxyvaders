@@ -1,3 +1,4 @@
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/gestures.dart';
@@ -24,12 +25,15 @@ class MyApp extends StatelessWidget {
 
   static Size dimensions;
   getDimension()async{
+
     dimensions = await Flame.util.initialDimensions();
   }
   Galaxy game = new Galaxy(dimensions);
 
   @override
   Widget build(BuildContext context) {
+    AudioCache player = new AudioCache(prefix: 'audio/');
+    player.loop('music.mp3');
 
     Flame.util.addGestureRecognizer(new HorizontalDragGestureRecognizer()
       ..onUpdate = (DragUpdateDetails update) => game.gonDragUpdate(context, update));

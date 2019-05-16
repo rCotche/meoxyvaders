@@ -12,7 +12,7 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   flame: ^0.9.5
-  font_awesome_flutter: ^8.2.0
+  audioplayers: ^0.7.7
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +27,6 @@ flutter:
     - assets/images/enemy.png
     - assets/images/bullet.png
     - assets/images/explosion-4.png
+    - assets/audio/music.mp3
+    - assets/audio/explosion.mp3
+    - assets/audio/miss.mp3

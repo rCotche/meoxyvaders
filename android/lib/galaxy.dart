@@ -45,7 +45,7 @@ class Galaxy extends BaseGame {
   @override
   void update(double t) {
     creationTimer += t;
-    if (creationTimer >= 4) {
+    if (creationTimer >= 2) {
       creationTimer = 0.0;
       enemy = new Enemy(dimensions);
       enemyList.add(enemy);

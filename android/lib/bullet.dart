@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flame/components/component.dart';
 import 'enemy.dart';
 import 'explosion.dart';
@@ -31,6 +32,8 @@ class Bullet extends SpriteComponent {
           item.explode = true;
           bullet.explode = true;
           enemyList.remove(item);
+          AudioCache player = new AudioCache(prefix: 'audio/');
+          player.play('explosion.mp3');
           game.add(new Explosion(item));
         }
       });
@@ -63,7 +66,7 @@ class Bullet extends SpriteComponent {
       creationBulletTimer = 1 * (1+0.5*(points~/5));
     }
     if(points%10 == 0 && points != 0){
-      creationBulletTimer = creationBulletTimer * 0.9;
+      creationBulletTimer = creationBulletTimer * 0.8;
     }
   }
 }
