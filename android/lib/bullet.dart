@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flame/components/component.dart';
 import 'enemy.dart';
+import 'galaxy.dart';
 import 'main.dart';
 
 const SPEED = 120.0;
@@ -51,5 +52,17 @@ class Bullet extends SpriteComponent {
     this.x = bulletPositionDx;
     this.y = bulletPositionDy;
     this.maxY = size.height;
+  }
+
+  void levelUp(){
+    if(points == 0){
+      creationBulletTimer = 1;
+    }else{
+      creationBulletTimer = 1 * (1+0.5*(points~/5));
+    }
+    if(points%10 == 0 && points != 0){
+      creationBulletTimer = creationBulletTimer * 1.05;
+      print(points%5);
+    }
   }
 }

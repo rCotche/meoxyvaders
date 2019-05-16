@@ -10,6 +10,7 @@ import 'player.dart';
 
 Enemy enemy;
 Player player;
+double creationBulletTimer = 0.0;
 class Galaxy extends BaseGame {
   Size dimensions;
 
@@ -38,7 +39,7 @@ class Galaxy extends BaseGame {
         new Offset(size.width - p.width - 10, size.height - p.height - 10));
   }
 
-  double creationBulletTimer = 0.0;
+
   double creationTimer = 0.0;
 
   @override
