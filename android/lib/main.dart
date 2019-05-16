@@ -9,7 +9,6 @@ import 'galaxy.dart';
 void main() => runApp(MyApp());
 
 bool gameOver = false;
-const ENEMY_SIZE = 40.0;
 const BULLET_SIZE = 20.0;
 
 Bullet bullet;
@@ -19,6 +18,8 @@ int points = 0;
 
 double bulletPositionDx = 0.0;
 double bulletPositionDy = 0.0;
+
+Galaxy game;
 
 class MyApp extends StatelessWidget {
   //BuildContext context;
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
 
   }
 
-var game = new Galaxy(dimensions);
+  final game = new Galaxy(dimensions);
 
   @override
   Widget build(BuildContext context) {

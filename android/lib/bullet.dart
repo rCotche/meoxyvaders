@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flame/components/component.dart';
 import 'enemy.dart';
 import 'galaxy.dart';
+import 'explosion.dart';
 import 'main.dart';
 
 const SPEED = 120.0;
@@ -29,7 +30,7 @@ class Bullet extends SpriteComponent {
           item.explode = true;
           bullet.explode = true;
           enemyList.remove(item);
-          //game.add(new Explosion(item));
+          game.add(new Explosion(item));
         }
       });
   }

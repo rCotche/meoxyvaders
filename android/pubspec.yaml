@@ -26,3 +26,4 @@ flutter:
     - assets/images/player.png
     - assets/images/enemy.png
     - assets/images/bullet.png
+    - assets/images/explosion-4.png
