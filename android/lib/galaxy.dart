@@ -59,6 +59,7 @@ class Galaxy extends BaseGame {
 
   void shot(double t) {
     creationBulletTimer += t;
+    this.levelUp();
     if (creationBulletTimer >= freq) {
       creationBulletTimer = 0.0;
       bulletList.add(bullet);
