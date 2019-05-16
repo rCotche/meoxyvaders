@@ -17,6 +17,7 @@ class Galaxy extends BaseGame {
 
   List<Enemy> enemyList = <Enemy>[];
   List<Bullet> bulletList = <Bullet>[];
+  double freq;
 
   Galaxy(this.dimensions) {
     player = new Player(dimensions);
@@ -58,7 +59,7 @@ class Galaxy extends BaseGame {
 
   void shot(double t) {
     creationBulletTimer += t;
-    if (creationBulletTimer >= 1) {
+    if (creationBulletTimer >= freq) {
       creationBulletTimer = 0.0;
       bulletList.add(bullet);
       bullet = new Bullet(enemyList, bulletList, this);
@@ -83,5 +84,17 @@ class Galaxy extends BaseGame {
 
     bulletPositionDx = player.x + 29;
     bulletPositionDy = player.y;
+  }
+
+
+  void levelUp() {
+    if (points == 0) {
+      freq = 1;
+    } else {
+      freq = 1 * (1 - 0.1 * (points ~/ 5));
+    }
+    if (points % 10 == 0 && points != 0) {
+      freq = freq * 0.9;
+    }
   }
 }
