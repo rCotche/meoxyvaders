@@ -6,7 +6,7 @@ class Explosion extends AnimationComponent {
 
   Explosion(Enemy enemy)
       : super.sequenced(ENEMY_SIZE, ENEMY_SIZE, 'explosion-4.png', 7,
-      textureWidth: 31.0, textureHeight: 31.0) {
+            textureWidth: 31.0, textureHeight: 31.0) {
     this.x = enemy.x;
     this.y = enemy.y;
     this.animation.stepTime = TIME / 7;

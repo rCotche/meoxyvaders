@@ -24,10 +24,11 @@ class MyApp extends StatelessWidget {
   //BuildContext context;
 
   static Size dimensions;
-  getDimension()async{
 
+  getDimension() async {
     dimensions = await Flame.util.initialDimensions();
   }
+
   Galaxy game = new Galaxy(dimensions);
 
   @override
@@ -36,10 +37,12 @@ class MyApp extends StatelessWidget {
     player.loop('music.mp3');
 
     Flame.util.addGestureRecognizer(new HorizontalDragGestureRecognizer()
-      ..onUpdate = (DragUpdateDetails update) => game.gonDragUpdate(context, update));
+      ..onUpdate =
+          (DragUpdateDetails update) => game.gonDragUpdate(context, update));
 
     Flame.util.addGestureRecognizer(new HorizontalDragGestureRecognizer()
-      ..onStart = (DragStartDetails start) => game.gonDragStart(context, start));
+      ..onStart =
+          (DragStartDetails start) => game.gonDragStart(context, start));
 
     return MaterialApp(
         title: 'Welcome to MeoxyVaders',
@@ -55,7 +58,6 @@ class MyApp extends StatelessWidget {
           child: GameWrapper(game),
         )));
   }
-
 }
 
 class GameWrapper extends StatelessWidget {

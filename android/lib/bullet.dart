@@ -15,6 +15,7 @@ class Bullet extends SpriteComponent {
   var game;
   List<Enemy> enemyList = <Enemy>[];
   List<Bullet> bulletList = <Bullet>[];
+
   Bullet(this.enemyList, this.bulletList, this.game)
       : super.square(BULLET_SIZE, 'bullet.png');
 
@@ -59,14 +60,14 @@ class Bullet extends SpriteComponent {
     this.maxY = size.height;
   }
 
-  void levelUp(){
-    if(points == 0){
+  void levelUp() {
+    if (points == 0) {
       creationBulletTimer = 1;
-    }else{
-      creationBulletTimer = 1 * (1+0.5*(points~/5));
+    } else {
+      creationBulletTimer = 1 * (1 + 0.5 * (points ~/ 5));
     }
-    if(points%10 == 0 && points != 0){
-      creationBulletTimer = creationBulletTimer * 0.8;
+    if (points % 10 == 0 && points != 0) {
+      creationBulletTimer = creationBulletTimer * 0.5;
     }
   }
 }

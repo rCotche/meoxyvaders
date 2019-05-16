@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 
 const SPEED = 120.0;
 const ComponentSize = 80.0;
+
 class Player extends SpriteComponent {
   Size dimensions;
+
   Player(this.dimensions) : super.square(ComponentSize, 'player.png');
   double maxY, maxX;
   bool remove = false;
@@ -21,9 +23,9 @@ class Player extends SpriteComponent {
     return remove;
   }
 
-  void move(Offset position){
-    if(this.x + (position.dx-this.x) <maxX){
-      this.x += position.dx-this.x;
+  void move(Offset position) {
+    if (this.x + (position.dx - this.x) < maxX) {
+      this.x += position.dx - this.x;
     }
   }
 
@@ -34,5 +36,4 @@ class Player extends SpriteComponent {
     this.maxY = size.height;
     this.maxX = size.width * 0.9;
   }
-
 }

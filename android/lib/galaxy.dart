@@ -11,12 +11,14 @@ import 'player.dart';
 Enemy enemy;
 Player player;
 double creationBulletTimer = 0.0;
+
 class Galaxy extends BaseGame {
   Size dimensions;
 
   List<Enemy> enemyList = <Enemy>[];
   List<Bullet> bulletList = <Bullet>[];
-  Galaxy(this.dimensions){
+
+  Galaxy(this.dimensions) {
     player = new Player(dimensions);
     add(player);
   }
@@ -36,9 +38,8 @@ class Galaxy extends BaseGame {
     gameOver
         ? overGame.paint(canvas, Offset(size.width / 5, size.height / 2))
         : p.paint(canvas,
-        new Offset(size.width - p.width - 10, size.height - p.height - 10));
+            new Offset(size.width - p.width - 10, size.height - p.height - 10));
   }
-
 
   double creationTimer = 0.0;
 
@@ -55,7 +56,7 @@ class Galaxy extends BaseGame {
     super.update(t);
   }
 
-  void shot(double t){
+  void shot(double t) {
     creationBulletTimer += t;
     if (creationBulletTimer >= 1) {
       creationBulletTimer = 0.0;
@@ -66,10 +67,10 @@ class Galaxy extends BaseGame {
   }
 
   void gonDragStart(BuildContext context, DragStartDetails start) {
-    print("Print start #1 "+start.globalPosition.toString());
+    print("Print start #1 " + start.globalPosition.toString());
     RenderBox getBox = context.findRenderObject();
     var local = getBox.globalToLocal(start.globalPosition);
-    print("Print start #2 "+local.dx.toString() + "|" + local.dy.toString());
+    print("Print start #2 " + local.dx.toString() + "|" + local.dy.toString());
   }
 
   void gonDragUpdate(BuildContext context, DragUpdateDetails update) {
@@ -80,7 +81,7 @@ class Galaxy extends BaseGame {
 
     player.move(update.globalPosition);
 
-    bulletPositionDx = player.x +29;
+    bulletPositionDx = player.x + 29;
     bulletPositionDy = player.y;
   }
 }
