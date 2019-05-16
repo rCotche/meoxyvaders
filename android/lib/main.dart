@@ -27,21 +27,6 @@ class MyApp extends StatelessWidget {
   static Size dimensions;
   getDimension()async{
     dimensions = await Flame.util.initialDimensions();
-
-    /*HorizontalDragGestureRecognizer horizontalDragGestureRecognizer =
-    new HorizontalDragGestureRecognizer();
-
-    Flame.util.addGestureRecognizer(horizontalDragGestureRecognizer
-      ..onUpdate = (startDetails) => game.dragInput(startDetails.globalPosition));
-
-    Flame.util.addGestureRecognizer(new TapGestureRecognizer()
-      ..onTapDown = (TapDownDetails evt) => game.tapInput(evt.globalPosition));
-
-    // Adds onUP feature to fire bullets
-    Flame.util.addGestureRecognizer(new TapGestureRecognizer()
-      ..onTapUp = (TapUpDetails evt) => game.onUp(evt.globalPosition));*/
-
-
   }
 
   final game = new Galaxy(dimensions);
