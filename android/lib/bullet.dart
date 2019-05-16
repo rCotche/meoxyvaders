@@ -2,18 +2,19 @@ import 'dart:ui';
 
 import 'package:flame/components/component.dart';
 import 'enemy.dart';
-import 'galaxy.dart';
 import 'explosion.dart';
 import 'main.dart';
+import 'galaxy.dart';
 
 const SPEED = 120.0;
 
 class Bullet extends SpriteComponent {
   bool explode = false;
   double maxY;
+  var game;
   List<Enemy> enemyList = <Enemy>[];
   List<Bullet> bulletList = <Bullet>[];
-  Bullet(this.enemyList, this.bulletList)
+  Bullet(this.enemyList, this.bulletList, this.game)
       : super.square(BULLET_SIZE, 'bullet.png');
 
   @override
@@ -62,8 +63,7 @@ class Bullet extends SpriteComponent {
       creationBulletTimer = 1 * (1+0.5*(points~/5));
     }
     if(points%10 == 0 && points != 0){
-      creationBulletTimer = creationBulletTimer * 1.05;
-      print(points%5);
+      creationBulletTimer = creationBulletTimer * 0.9;
     }
   }
 }

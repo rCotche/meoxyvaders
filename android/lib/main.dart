@@ -19,8 +19,6 @@ int points = 0;
 double bulletPositionDx = 0.0;
 double bulletPositionDy = 0.0;
 
-Galaxy game;
-
 class MyApp extends StatelessWidget {
   //BuildContext context;
 
@@ -28,8 +26,7 @@ class MyApp extends StatelessWidget {
   getDimension()async{
     dimensions = await Flame.util.initialDimensions();
   }
-
-  final game = new Galaxy(dimensions);
+  Galaxy game = new Galaxy(dimensions);
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +51,7 @@ class MyApp extends StatelessWidget {
           child: GameWrapper(game),
         )));
   }
+
 }
 
 class GameWrapper extends StatelessWidget {

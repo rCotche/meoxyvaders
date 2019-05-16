@@ -60,7 +60,7 @@ class Galaxy extends BaseGame {
     if (creationBulletTimer >= 1) {
       creationBulletTimer = 0.0;
       bulletList.add(bullet);
-      bullet = new Bullet(enemyList, bulletList);
+      bullet = new Bullet(enemyList, bulletList, this);
       add(bullet);
     }
   }
