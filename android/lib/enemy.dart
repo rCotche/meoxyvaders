@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flame/components/component.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +33,10 @@ class Enemy extends SpriteComponent {
     }
     bool destroy = y >= maxY + ENEMY_SIZE / 2;
     if (destroy) {
-      AudioCache player = new AudioCache(prefix: 'audio/');
+      AudioPlayer advancedPlayer = new AudioPlayer();
+      AudioCache player = new AudioCache(prefix: 'audio/', fixedPlayer: advancedPlayer);
       player.play('miss.mp3');
-      player.clear('music.mp3');
+      advancedPlayer.stop();
       gameOver = true;
 
       print("Game over");

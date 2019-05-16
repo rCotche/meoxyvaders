@@ -1,4 +1,5 @@
 import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/gestures.dart';
@@ -33,8 +34,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioCache player = new AudioCache(prefix: 'audio/');
-    player.loop('music.mp3');
+    /*AudioPlayer advancedPlayer = new AudioPlayer();
+    AudioCache player = new AudioCache(prefix: 'audio/', fixedPlayer: advancedPlayer);
+    player.loop('music.mp3', volume: 0.7);*/
 
     Flame.util.addGestureRecognizer(new HorizontalDragGestureRecognizer()
       ..onUpdate =
